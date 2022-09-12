@@ -1,0 +1,244 @@
+:root { /* Estilos de la raiz de la página, estos estilos afectan a todos los archivos .css del proyecto */
+    --hard-blue: #71C9CE;
+    --medium-hard-blue: #A6E3E9;
+    --medium-soft-blue: #CBF1F5;
+    --soft-blue: #E3FDFD;
+    --white: #fff;
+    --black: #000;
+} 
+* { /* Estilos que pone por defecto el navegador */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html { /* Estilos de la etiqueta HTML */
+    font-size: 62.5%;
+    font-family: 'DM Sans', sans-serif;
+}
+/*----- HEADER ----- */ 
+header .header-navigation { /* Estilos de la etiqueta nav que va en el header de la página */
+    width: 100%;
+    height: 60px;
+    display: flex;
+    min-width: 320px;
+    border-bottom: 1px solid var(--black);
+    padding-left: 10px;
+}
+.header-navigation .header-navigation__icon { /* Icono de menú lateral que se ve en la versión móvil solamente */
+    width: 45px;
+    height: 45px;
+    background-image: url('../../assets/icons/menu.svg'); /* Carga la imagen desde CSS */
+    background-size: cover; /* Cubre todo el contenedor */
+    background-position: center; /* Posiciona siempre sin importar el tamaño del contenedor, la imagen en el centro */
+    background-repeat: repeat; /* Utilizado para que la imagen no se replique, esto se hace cuando la imagen quiera rellenar el contenedor */
+    align-self: center;
+    justify-self: left;
+}
+.header-navigation figure { /* Contenedor del logo de la página */
+    align-self: center;
+    margin-left: auto;
+}
+.header-navigation .header-navigation__logo { /* Imagen del logo de la página */
+    width: 130px;
+    height: 50px;
+}
+.header-navigation .header-navigation__login-button { /* Botón de ingreso */
+    display: none;
+}
+.header-navigation .header-navigation__register-button { /* Botón de registro */
+    display: none;
+}
+/* ----- MAIN ----- */
+/* ? main banner */
+.family-banner { /* Sección del main. Primera parte de la página, título, botón y par de imagenes laterales */
+    width: 100%;
+    height: 380px;
+    background-color: var(--soft-blue);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    place-content: center;
+    grid-template-areas: 
+        "h1 h1" 
+        "logo button";
+}
+.family-banner .family-banner__title { /* Titulo principal de la página */
+    grid-area: h1;
+    place-self: center;
+    font-size: 2.5rem;
+    text-align: center;
+}
+.family-banner .family-banner__register-button { /* Contenedor del botón de registro en el banner primario */
+    place-self: center;
+    grid-area: button;
+    font-size: 1.4rem;
+    text-align: center;
+}
+.family-banner .family-banner__register-button button { /* Botón de registro en el banner primario */
+    border-radius: 8px;
+    width: 110px;
+    height: 40px;
+    color: var(--white);
+    font-weight: bold;
+    border: 0.2px solid var(--medium-soft-blue);
+    background-color: var(--hard-blue);
+    margin-bottom: 15px;
+}
+.family-banner .family-banner__register-button button a {
+    text-decoration: none;
+}
+.family-banner .family-banner__register-button p { /* Texto que acompaña al botón de registro */
+    font-size: 1.5rem;
+    line-height: 2.0rem;
+}
+.family-banner .family-banner__register-button p a { /* Link que acompaña al botón de registro "Inicia sesión" */
+    text-decoration: none;
+    font-weight: bold;
+}
+.family-banner .family-banner__family-logo { /* Logo izquierdo del banner principal, este es visible en la versión móvil */
+    width: 120px;
+    height: 120px;
+    grid-area: logo;
+    background-image: url('../../assets/images/hands-logo.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: repeat; 
+    place-self: center;
+}
+/* ? Family cards */
+.family-cards { /* Sección de las tarjetas con scroll lateral */
+    width: 100%;
+    padding-bottom: 50px;
+    text-align: center;
+    padding-top: 30px;
+}
+.family-cards .family-cards--title { /* Contenedor del título y parrafo de la sección de las tarejtas */
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+.family-cards .family-cards--title h2 { /* Título de la sección de las tarjetas */
+    font-size: 2rem;
+}
+.family-cards .family-cards--title p { /* Texto que se encuentra ubicado en la parte superior de sección de las tarjetas */
+    padding-top: 20px;
+    font-size: 1.3rem;
+}
+.family-cards .family-cards--slider { /* Contenedor de las tarjetas, permite el slider */
+    display: flex;
+    height: 340px;
+    overflow-x: scroll;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
+}
+.family-cards--slider .family-cards--card { /* Tarjetas como tal */
+    position: relative;
+    width: 75%;
+    min-width: 220px;
+    max-width: 300px;
+    margin: 50px 15px 0;
+    height: 270px;
+    scroll-snap-align: center;
+    background-color: var(--soft-blue);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(89, 73, 30, 0.16);
+}
+.family-cards--card .family-card--title { /* Título o cuadro superior de las tarjetas */
+    position: absolute;
+    font-size: 1.4rem;
+    font-weight: bold;
+    width: 120px;
+    height: 35px;
+    left: calc(50% - 60px);
+    top: -15px;
+    border-radius: 8px;
+    padding: 10px;
+    background-color: var(--hard-blue);
+    color: var(--white);
+}
+.family-cards--card .family-cards--container img { /* Imagen de las tarjetas */
+    width: 100%;
+    border-radius: 8px;
+    height: 180px;
+}
+.family-cards--card .family-cards--container p { /* Texto que se encuentra ubicado en las tarjetas */
+    margin: auto;
+    width: 80%;
+    margin-top: 8px;
+    font-size: 1.2rem;
+}
+/* Family banner container */
+.family-image-container { /* Imagen del segundo banner de la página */
+    width: 100%;
+    height: 370px;
+    background-image: url('../../assets/images/Banner.jpg');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+.family-image-container div { /* Contenedor del título del segundo banner de la página  */
+    width: 70%;
+    font-size: 1.8rem;
+    text-align: center;
+    justify-content: start;
+    margin-top: 20px;
+    padding-right: 15px;
+}
+/* ----- FOOTER ----- */
+footer { /* Etiqueta del footer */
+    display: flex;
+    width: 100%;
+    height: 80px;
+    background-color: var(--soft-blue);
+}
+footer section { /* Secciones del footer, este se compone de dos secciones */
+    width: 50%;
+}
+.footer-container-left { /* Contenedor izquierdo del footer */
+    padding-left: 10px;
+    place-self: center;
+}
+.footer-container-left ul { /* Lista desordenada que compone al contendor izquierdo del footer */
+    display: flex;
+    place-items: center;
+    list-style: none;
+}
+.footer-container-left ul li:nth-child(2) { /* Segundo elemento de la lista desordenada, es decir, contenedor logo de linkdin */
+    margin-left: 10px;
+}
+.footer-container-left .github-logo { /* Logo de github */
+    display: inline-block;
+    width: 50px;
+    height:50px;
+    background-image: url('../../assets/icons/github-logo.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    align-self: center;
+    justify-self: left;
+}
+.footer-container-left .linkedin-logo  { /* Logo de linkedin */
+    display: inline-block;
+    width:  40px;
+    height: 40px;
+    background-image: url('../../assets/icons/linkedin-logo.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat; 
+    align-self: center;
+    justify-self: left;
+}
+.footer-container-right { /* Contenedor de la parte derecha del footer */
+    padding-right: 10px;
+    text-align: end;
+    align-self: center;
+}
+.footer-container-right img { /* Imagen del logo de la página que va en el footer */
+    width: 120px;
+    height: 45px;
+}
