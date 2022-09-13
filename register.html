@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/register/styles.css">
+    <link rel="stylesheet" href="./css/register/laptop.css" media="(min-width: 930px)">
+</head>
+<body>
+    <header>
+        <nav class="header-navigation">
+            <span class="header-navigation__icon"></span>
+            <figure>
+                <a href="./index.html"><img class="header-navigation__logo" src="./assets/images/family_logo.png" alt="Logo de la página"></a>
+            </figure>
+            <button class="header-navigation__login-button">Log in</button>
+            <button class="header-navigation__register-button">Sign up</button>
+        </nav>
+    </header>
+    <main>
+        <section class="main-section">
+            <h1 class="main-section--title">Crea una cuenta gratuita</h1>
+            <form class="main-form" action="">
+                <label for="primer-nombre">
+                    <span>Primer nombre</span>
+                    <input type="text" id="primer-nombre" placeholder="Primer nombre" name="primer-nombre" required>
+                </label>
+                <label for="segundo-nombre">
+                    <span>Segundo nombre</span>
+                    <input type="text" id="segundo-nombre" placeholder="Segundo nombre" name="segundo-nombre" required>
+                </label>
+                <label for="primer-apellido">
+                    <span>Primer apellido</span>
+                    <input type="text" id="primer-apellido" placeholder="Primer apellido" name="primer-apellido" required>
+                </label>
+                <label for="segundo-apellido">
+                    <span>Segundo apellido</span>
+                    <input type="text" id="segundo-apellido" placeholder="Segundo apellido" name="segundo-apellido" required>
+                </label>
+                <label for="cedula">
+                    <span>Cedula</span>
+                    <input type="number" id="cedula" placeholder="Identificación" name="cedula" required>
+                </label>
+                <label for="nacimiento">
+                    <span>Fecha de nacimiento</span>
+                    <input type="date" id="nacimiento" name="nacimiento" required>
+                </label>
+                <div class="gender-container">
+                    <p>Género</p>
+                    <label for="masculino" class="masculino-label">
+                        <span class="masculino-text">Masculino</span>
+                        <input type="checkbox" id="masculino" name="masculino">
+                    </label>
+                    <label for="femenino" class="femenino-label">
+                        <span class="femenino-text">Femenino</span>
+                        <input type="checkbox" id="femenino" name="femenino">
+                    </label>
+                </div>
+                <label for="email">
+                    <span>Email</span>
+                    <input type="email" id="email" placeholder="example@mail.com" name="email" required>
+                </label>
+                <label for="usuario">
+                    <span>Usuario</span>
+                    <input type="text" id="usuario" placeholder="Usuario" name="usuario" required>
+                </label>
+                <label for="password">
+                    <span>Password</span>
+                    <input type="password" id="password" placeholder="********" name="password" required>
+                </label>
+                <label for="retype-password">
+                    <span>Repetir password</span>
+                    <input type="password" id="retype-password" placeholder="********" name="retype-password" required>
+                </label>
+                <p class="required-indication">Todos los campos son requeridos *</p>
+                <input type="submit" value="Registrarse" class="login-button">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <section class="footer-container-left">
+            <ul>
+                <li><a href="#"><span class="github-logo"></span></a></li>
+                <li><a href="#"><span class="linkedin-logo"></span></a></li>
+            </ul>
+        </section>
+        <section class="footer-container-right">
+            <img src="./assets/images/family_logo.png" alt="Logo de la página">
+        </section>
+    </footer>
+</body>
+</html>
