@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="./css/profile/laptop.css">
+    <!-- <link rel="stylesheet" href="./css/profile/laptop.css" media="(min-width: 930px)"> -->
+</head>
+<body>
+    <header>
+        <nav class="header-navigation">
+            <span class="header-navigation__icon"></span>
+            <figure>
+                <a href="./index.html"><img class="header-navigation__logo" src="./assets/images/family_logo.png" alt="Logo de la página"></a>
+            </figure>
+            <button class="header-navigation__login-button">Log in</button>
+            <button class="header-navigation__register-button">Sign up</button>
+        </nav>
+    </header>
+    <main>
+        <section class="user-section"> <!-- Sección de usuario (nombre - fecha de nacimiento - Usuario) -->
+            <div class="user-container">
+                <img src="./assets/icons/perfil.png" alt="Imagen de perfil"> <!-- Imagen de perfil (SI ES HOMBRE O MUJER CAMBIA -  NO ES FOTO DE PERFIL QUE EL USUARIO SUBA) -->
+                <h1>Anonimo Anonimo Anonimo Anonimo</h1> <!-- Nombre completo del usuario -->
+                <div>
+                    <p>08 de agosto de 2000</p> <!-- fecha de nacimiento -->
+                    <p>anonimo12345</p> <!-- Usuario de la plataforma -->
+                </div>
+            </div>
+        </section>
+        <section class="information-container"> <!-- Información de usuario (información como la cedula - email y una breve descripción del usuario) -->
+            <div class="information-user">
+                <p>1234567</p>
+                <p>example@mail.com</p>
+                <p>Breve descripción del usuario</p>
+                <button>Añadir descripción</button>
+            </div>
+        </section>
+        <section> <!-- información referente a los miembros de la familia (arbol actual) -->
+
+        </section>
+        <section class="family-cards"> <!-- links para las páginas del CRUD (crear arbol - modificar/borrar elementos arbol) -->
+            <div class="family-cards--title">
+                <h2>Interactua con tu arbol Genealógico</h2>
+                <p>Tienes diferentes opciones para interactuar con tu árbol, elige la que necesites</p>
+            </div>
+            <section class="family-cards--slider">
+                <article class="family-cards--card">
+                    <div class="family-cards--container">
+                        <div class="face front-card">
+                            <img src="./assets/images/Creacion.jpg" alt="">
+                            <p>Crear</p>
+                        </div>
+                        <div class="face back-card">
+                            <p>Crea tu árbol genealógico como desees. Ingresa miembros de tu familia y enfermedades</p>
+                            <button><a href="">Oprime aquí</a></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="family-cards--card">
+                    <div class="family-cards--container">
+                        <div class="face front-card">
+                            <img src="./assets/images/Modificar.jpg" alt="">
+                            <p>Modificar</p>
+                        </div>
+                        <div class="face back-card">
+                            <p>Modifica información que ya has ingresado a tu árbol. Puedes cambiar lo que desees!!!</p>
+                            <button><a href="">Oprime aquí</a></button>
+                        </div>
+                    </div>
+                </article>
+                <article class="family-cards--card">
+                    <div class="family-cards--container">
+                        <div class="face front-card">
+                            <img src="./assets/images/Familia_3.jpg" alt="">
+                            <p>Eliminar</p>
+                        </div>
+                        <div class="face back-card">
+                            <p>Elimina información presente en tu árbol. Ten presente que no es relevante para ti</p>
+                            <button><a href="">Oprime aquí</a></button>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </section>
+    </main>
+    <footer>
+        <section class="footer-container-left">
+            <ul>
+                <li><a href="#"><span class="github-logo"></span></a></li>
+                <li><a href="#"><span class="linkedin-logo"></span></a></li>
+            </ul>
+        </section>
+        <section class="footer-container-right">
+            <a href="./profile.html"><img src="./assets/images/family_logo.png" alt="Logo de la página"></a>
+        </section>
+    </footer>
+</body>
+</html>
