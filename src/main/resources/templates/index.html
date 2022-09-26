@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/index/styles.css">
+    <link rel="stylesheet" href="./css/index/laptop.css" media="(min-width: 930px)">
+</head>
+<body>
+    <header>
+        <nav class="header-navigation">
+            <span class="header-navigation__icon"></span>
+            <figure>
+                <img class="header-navigation__logo" src="/images/family_logo.png" alt="Logo de la página">
+            </figure>
+            <button class="header-navigation__login-button">Log in</button>
+            <button class="header-navigation__register-button">Sign up</button>
+        </nav>
+    </header>
+    <main>
+        <section class="family-banner">
+            <h1 class="family-banner__title">Inicia sesión y descubre los antecedentes médicos familiares</h1>
+            <span class="family-banner__hands-logo"></span>
+            <span class="family-banner__family-logo"></span>
+            <div class="family-banner__register-button">
+                <button><a href="/create_person">Crear cuenta</a></button>
+                <p>¿Ya tienes cuenta?<br><a href="/login">Inicia sesión</a></p>
+            </div>
+        </section>
+        <section class="family-cards">
+            <div class="family-cards--title">
+                <h2>Crea tu propio arbol Genealógico</h2>
+                <p>Abre de forma gratuita tu sesión y averigua como las enfermedades de tus familiares pueden afectarte a ti</p>
+            </div>
+            <section class="family-cards--slider">
+                <article class="family-cards--card">
+                    <p class="family-card--title antecedentes">Antecedentes</p>
+                    <div class="family-cards--container">
+                        <img src="/images/Familia_1.jpg" alt="">
+                        <p>Conocer los antecedentes familiares, permitira que tu generación futura conozca las enfermedades presentes</p>
+                    </div>
+                </article>
+                <article class="family-cards--card">
+                    <p class="family-card--title riesgo">Riesgo</p>
+                    <div class="family-cards--container">
+                        <img src="/images/Familia_2.jpg" alt="">
+                        <p>Al conocer la historia médica familiar, se pueden llegar a tomar medidas para reducir el riesgo de enfermedades</p>
+                    </div>
+                </article>
+                <article class="family-cards--card">
+                    <p class="family-card--title genetica">Genética</p>
+                    <div class="family-cards--container">
+                        <img src="/images/Familia_3.jpg" alt="">
+                        <p>El registro de enfermedades puede ayudar a la investigación en áreas de la salud relacionadas con genética</p>
+                    </div>
+                </article>
+            </section>
+        </section>
+        <section class="family-image-container">
+            <div>
+                <h2>Conoce las enfermedades de tu familia</h2>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <section class="footer-container-left">
+            <ul>
+                <li><a href="#"><span class="github-logo"></span></a></li>
+                <li><a href="#"><span class="linkedin-logo"></span></a></li>
+            </ul>
+        </section>
+        <section class="footer-container-right">
+            <a href="./profile.html"><img src="/images/family_logo.png" alt="Logo de la página"></a>
+        </section>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" 
+    rel="stylesheet" 
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" 
+    crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="css/style.css" />
+  
+    <link rel="preconectar" href="https://fonts.googleapis.com"/>
+    <link rel="preconectar" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https: //fonts.googleapis.com/css2? family= Raleway:ital,wght@1,200 & display=swap" rel="stylesheet"/>
+
+    <title>Arbol genealogico de enfermedades</title>
+</head>
+<body>
+
+
+
+    <!--Inicio del panel de navegacion-->
+    <!--<nav class="navbar navbar-expand-md bg-dark navbar-dark">-->
+     <nav class="navbar navbar-expand-md bg-primay bg-primary">
+
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="/icon/health-icon.jpg" 
+                alt="" width="40" 
+                height="40"
+                class="d-inline-block align-text-top"
+                /><b>
+            Arbol genealogico de enfemedades</b></a
+            >
+            <button 
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="toggle navigation">
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#"
+                        ><b>Gestion de Personas</b></a
+                        >
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!--final del panel de navegacion-->
+
+<!--Inicio del card-->
+<div class="container mt-3">
+    <div class="row">
+        <div class="card text-right">
+            <div class="card-body">
+                <h1 class="card-title"><FONT COLOR="blue">Crear persona</FONT></h1>
+<!--Inicio del formulario-->
+<form>
+    <div class="mb-3">
+        <div class="form-group">
+            <label><b>Nombre(s)</b></label>
+            <input 
+             type="text" 
+             name="nombrePersona"
+             class="form-control" 
+             placeholder="Ingrese Nombre(s)"
+            />
+        </div>
+
+        <div class="form-group">
+            <label><b>Apellido(s)</b></label>
+            <input 
+             type="text" 
+             name="apellidoPersona"
+             class="form-control" 
+             placeholder="Ingrese Apellido(s)"
+             />
+        </div>
+
+        <div class="form-group">
+            <label><b>Cedula</b></label>
+            <input 
+             type="number" 
+             name="cedulaPersona"
+             class="form-control" 
+             placeholder="Ingrese numero de cedula SIN PUNTOS"
+             />
+        </div>
+
+        <div class="form-group">
+            <label><b>Genero</b></label>
+            <input 
+            type="text" 
+            name="generoPersona"
+            class="form-control"
+            placeholder="Ingrese M para masculinoo o F para Femenino"
+            />
+        </div>
+
+        <div class="form-group">
+            <label><b>Fecha Nacimiento</b></label>
+            <input 
+             type="date" 
+             name="fechaNacimientoPersona"
+             class="form-control" 
+             placeholder="Ingrese Fecha Nacimiento"
+             />
+
+        <div class="form-group">
+            <label for="exampleFormControlInput1" class="form-label"><b>Email address</b></label>
+            <input 
+            type="email" 
+            class="form-control" 
+            id="exampleFormControlInput1" 
+            name="emailPersona"
+            placeholder="name@example.com"
+            />
+        
+        <div class="form-group">
+           <label><b>Usuario</b></label>
+            <input 
+              type="text" 
+              name="usuarioPersona"
+              class="form-control" 
+              placeholder="Ingrese usuario"
+             />
+            
+        <div class="form-group">
+            <label><b>Password</b></label>
+            <input 
+             type="text" 
+             name="passwordPersona"
+             class="form-control" 
+             placeholder="*********"
+            />
+
+        <div class="form-group">
+            <label><b>Enfermedad 1</b></label>
+            <input 
+             type="text" 
+             name="enfermedadUnoPersona"
+             class="form-control" 
+             placeholder="Ingrese enfermedad"
+             />
+
+        <div class="form-group">
+            <label><b>Enfermedad 2</b></label>
+            <input 
+            type="text" 
+            name="enfermedadDosPersona"
+            class="form-control" 
+            placeholder="Ingrese enfermedad"
+            />
+
+
+        <div class="form-group">
+            <label><b>Enfermedad 3</b></label>
+            <input 
+            type="text" 
+            name="enfermedadTresPersona"
+            class="form-control" 
+            placeholder="Ingrese enfermedad"
+            />
+        </div>
+        <div class="box-footer mt-4">
+          <button type="submit" class="btn btn-success" onclick="this.disabled=true">Crear persona</button>
+          <a class="btn btn-dark" href="/edit_person" role="button">modificar persona</a>
+          <a class="btn btn-secondary" href="/create_member" role="button">adicionar miembro</a>          
+          <a class="btn btn-warning" href="/ver_mi_arbol" role="button">ver mi arbol</a>          
+
+    
+
+        </div>
+      </div>
+    </form>           
+
+
+
+<!--fin del formulario-->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--final del panel card-->
+
+</body>
+</html>

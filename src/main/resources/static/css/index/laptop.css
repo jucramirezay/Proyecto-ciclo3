@@ -1,0 +1,108 @@
+/* ----- HEADER ----- */
+.header-navigation { /* Etiqueta nav que va en el header de la página */
+    /* justify-content: end; */
+    padding-right: 20px;
+}
+.header-navigation .header-navigation__icon  { /* Menú lateral que solo se ve en la versión móvil */
+    display: none;
+}
+.header-navigation figure { /* Contenedor de la imagen del logo de la página */
+    display: inline-block;
+    margin-right: auto;
+    align-self: center;
+}
+.header-navigation button { /* Botónes de ingreso y de registro */
+    font-size: 1.4rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+.header-navigation .header-navigation__login-button { /* Botón de ingreso */
+    display: inline;
+    width: 100px;
+    height: 35px;
+    border-radius: 8px;
+    border: 1px solid var(--hard-blue);
+    background-color: var(--white);
+    color: var(--black);
+    align-self: center;
+}
+.header-navigation .header-navigation__register-button { /* Botón de registro */
+    display: inline;
+    width: 100px;
+    height: 35px;
+    border-radius: 8px;
+    border: 0.2px solid var(--medium-soft-blue);
+    background-color: var(--hard-blue);
+    color: var(--white);
+    align-self: center;
+    margin-left: 20px;
+}
+/* ----- MAIN ----- */
+/* ? banner principal */
+.family-banner { /* Banner principal que se encuentra ubicado en el main */
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 0.6fr 1fr;
+    place-content: center;
+    grid-template-areas: 
+        "h1 h1 h1" 
+        "logo1 button logo2 ";
+}
+.family-banner .family-banner__title { /* Titulo principal de la página, ubicado en el banner primario */
+    font-size: 4.2rem;
+}
+.family-banner .family-banner__hands-logo { /* Logo izquierdo, en la versión para desktop se visualizan dos logos */
+    width: 180px;
+    height: 180px;
+    grid-area: logo1;
+    background-image: url('/images/hands-logo.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: repeat;
+    place-self: center; 
+    margin-left: 150px;
+}
+.family-banner .family-banner__register-button button { /* Botón de registro que se encuentra en el banner principal */
+    width: 130px;
+    height: 50px;
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+}
+.family-banner .family-banner__family-logo { /* Logo derecho, en la versión desktop se visualizan dos logos */
+    width: 180px;
+    height: 180px;
+    grid-area: logo2;
+    background-image: url('/images/family-united.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: repeat; 
+    place-self: center;
+    margin-right: 150px;
+}
+/* ? Sección de las tarjetas */
+.family-cards .family-cards--slider { /* Contenedor de las tarjetas */
+    justify-content: center;
+}
+.family-cards .family-cards--title h2 { /* Titulo de la sección de las tarjetas */
+    font-size: 2.6rem;
+}
+.family-cards .family-cards--title p { /* Texto que se encuentra en la parte superior de la sección tarjetas */
+    font-size: 1.8rem;
+}
+/* ? Tercer banner de la página */
+.family-image-container div { /* Contenedor de la imagen que es el segundo banner de la página */
+    width: 50%;
+    font-size: 2.4rem;
+    margin-top: 30px;
+    padding-right: 35px;
+}
+/* ----- FOOTER ----- */
+.footer-container-left { /* Sección izquierda del footer, logo git-hub y linkedin */
+    padding-left: 40px;
+}
+.footer-container-left ul li:nth-child(2) { /* Logo de linkedin solamente */
+    margin-left: 20px;
+}
+.footer-container-right { /* Sección derecha del footer, logo de la página */
+    padding-right: 40px;
+}
