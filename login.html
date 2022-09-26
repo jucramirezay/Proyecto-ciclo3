@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Inter:wght@300;500&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="./css/login/styles.css">
+    <link rel="stylesheet" href="./css/login/laptop.css" media="(min-width: 930px)">
+</head>
+<body>
+    <header>
+        <nav class="header-navigation">
+            <span class="header-navigation__icon"></span>
+            <figure>
+                <a href="./index.html"><img class="header-navigation__logo" src="./assets/images/family_logo.png" alt="Logo de la página"></a>
+            </figure>
+            <button class="header-navigation__login-button">Log in</button>
+            <button class="header-navigation__register-button">Sign up</button>
+        </nav>
+    </header>
+    <main>
+        <section class="main-section">
+            <h1 class="main-section--title">Bienvenido</h1>
+            <p>Ingrese por favor su usuario y contraseña</p>
+            <form class="main-form" action="">
+                <label for="usuario">
+                    <span>Usuario</span>
+                    <input type="text" id="usuario" placeholder="Usuario" name="usuario" required>
+                </label>
+                <label for="password">
+                    <span>Password</span>
+                    <input type="password" id="password" placeholder="********" name="password" required>
+                </label>
+                <input type="submit" value="Ingresar" class="login-button">
+            </form>
+        </section>
+    </main>
+    <footer>
+        <section class="footer-container-left">
+            <ul>
+                <li><a href="#"><span class="github-logo"></span></a></li>
+                <li><a href="#"><span class="linkedin-logo"></span></a></li>
+            </ul>
+        </section>
+        <section class="footer-container-right">
+            <img src="./assets/images/family_logo.png" alt="Logo de la página">
+        </section>
+    </footer>
+</body>
+</html>
