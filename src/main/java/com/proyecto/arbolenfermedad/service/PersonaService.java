@@ -1,8 +1,7 @@
 package com.proyecto.arbolenfermedad.service;
 
-import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
 
 import org.springframework.stereotype.Service;
 
@@ -10,29 +9,44 @@ import com.proyecto.arbolenfermedad.Repository.IPersonaRepository;
 import com.proyecto.arbolenfermedad.entity.Persona;
 
 @Service
-public class PersonaService {
- 
-    @Autowired
+public class PersonaService implements IPersonaService {
+
+  
     private IPersonaRepository personaRepository;
 
-
-
-    public List<Persona> listAll(){
-        return personaRepository.findAll();
-    }
-
-
-    public void save(Persona persona){
-        personaRepository.save(persona);
-    }
-
     
-    public Persona get(Long id){
-        return personaRepository.findById(id).get();   
-    }    
 
-    public void delete(Long id){
+
+    public PersonaService(IPersonaRepository personaRepository) {
+        this.personaRepository = personaRepository;
+    }
+
+    @Override
+    public Persona savePersona (Persona persona){
+        return personaRepository.save(persona);
+    }
+
+
+    @Override
+    public Persona getPersonaById(Long id){
+        return personaRepository.getReferenceById(id); 
+    }   
+
+
+
+    @Override
+    public void deletePersonaById(Long id){
         personaRepository.deleteById(id);
+    }
+
+    @Override
+    public Persona updatePersona(Persona persona){
+        return personaRepository.save(persona);
+    }
+
+    @Override
+    public List<Persona> getAll() {
+        return personaRepository.findAll();
     }
 
 

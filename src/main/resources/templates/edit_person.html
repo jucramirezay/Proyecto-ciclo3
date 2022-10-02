@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,176 +8,164 @@
     rel="stylesheet" 
     integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" 
     crossorigin="anonymous"
-    />
+/>
 
-    <link rel="stylesheet" href="css/style.css" />
-  
-    <link rel="preconectar" href="https://fonts.googleapis.com"/>
-    <link rel="preconectar" href="https://fonts.gstatic.com" crossorigin/>
-    <link href="https: //fonts.googleapis.com/css2? family= Raleway:ital,wght@1,200 & display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css" />
 
-    <title>Registrarse</title>
+<link rel="preconectar" href="https://fonts.googleapis.com"/>
+<link rel="preconectar" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https: //fonts.googleapis.com/css2? family= Raleway:ital,wght@1,200 & display=swap" rel="stylesheet"/>
+
+<title>Actualizacion de datos</title>
 </head>
 <body>
 
 
 
-    <!--Inicio del panel de navegacion-->
-    <!--<nav class="navbar navbar-expand-md bg-dark navbar-dark">-->
-     <nav class="navbar navbar-expand-md bg-primay bg-primary">
+<!--Inicio del panel de navegacion-->
+<!--<nav class="navbar navbar-expand-md bg-dark navbar-dark">-->
+ <nav class="navbar navbar-expand-md bg-primay bg-primary">
 
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-                <img src="/icon/health-icon.jpg" 
-                alt="" width="40" 
-                height="40"
-                class="d-inline-block align-text-top"
-                /><b>
-            Registro</b></a
-            >
-            <button 
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="toggle navigation">
-            >
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a 
-                        th:href="@{/registrarpersona}"
-                        class="nav-link active" 
-                        aria-current="page" 
-                        href="#"
-                        ><b>guardar datos</b></a
-                        >
-                </ul>
-            </div>
-        </div>
-    </nav>
-<!--final del panel de navegacion-->
-
-<!--Inicio del card-->
-<div class="container mt-3">
-    <div class="row">
-        <div class="card text-right">
-            <div class="card-body">
-                <h1 class="card-title"><FONT COLOR="blue">Crear persona</FONT></h1>
-<!--Inicio del formulario-->
-<form th:action="@{/guardarpersona}" th:object="${persona}" method="POST">
-    
-    <div class="mb-3">
-        <div class="form-group">
-            <label><b>Nombre(s)</b></label>
-            <input 
-             type="text" 
-             name="nombrePersona"
-             th:field="*{nombrePersona}"
-             class="form-control" 
-             placeholder="Ingrese Nombre(s)"
-            />
-        </div>
-
-        <div class="form-group">
-            <label><b>Apellido(s)</b></label>
-            <input 
-             type="text" 
-             name="apellidoPersona"
-             th:field="*{apellidoPersona}"
-             class="form-control" 
-             placeholder="Ingrese Apellido(s)"
-             />
-        </div>
-
-        <div class="form-group">
-            <label><b>Cedula</b></label>
-            <input 
-             type="number" 
-             name="cedulaPersona"
-             th:field="*{cedulaPersona}"
-             class="form-control" 
-             placeholder="Ingrese numero de cedula SIN PUNTOS"
-             />
-        </div>
-
-       
-        <div class="form-group">
-           <label><b>Usuario</b></label>
-            <input 
-              type="text" 
-              name="usuarioPersona"
-              th:field="*{usuarioPersona}"
-              class="form-control" 
-              placeholder="Ingrese usuario"
-             />
-            
-        <div class="form-group">
-            <label><b>Password</b></label>
-            <input 
-             type="text" 
-             name="passwordPersona"
-             th:field="*{passwordPersona}"
-             class="form-control" 
-             placeholder="*********"
-            />
-
-        <div class="form-group">
-            <label><b>Enfermedad 1</b></label>
-            <input 
-             type="text" 
-             name="enfermedadUnoPersona"
-             th:field="*{enfermedadUnoPersona}"
-             class="form-control" 
-             placeholder="Ingrese enfermedad"
-             />
-
-        <div class="form-group">
-            <label><b>Enfermedad 2</b></label>
-            <input 
-            type="text" 
-            name="enfermedadDosPersona"
-            th:field="*{enfermedadDosPersona}"
-            class="form-control" 
-            placeholder="Ingrese enfermedad"
-            />
-
-
-
-        <div class="form-group">
-            <label><b>Enfermedad 3</b></label>
-            <input 
-            type="text" 
-            name="enfermedadTresPersona"
-            th:field="*{enfermedadTresPersona}"
-            class="form-control" 
-            placeholder="Ingrese enfermedad"
-            />
-        </div>
-        <div class="box-footer mt-4">
-          <a         
-          class="btn btn-success" 
-          role="button"
-           >Crear persona</a>
-
-        </div>
-      </div>
-    </form>           
-
-
-
-<!--fin del formulario-->
-
-            </div>
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="/icon/health-icon.jpg" 
+            alt="" width="40" 
+            height="40"
+            class="d-inline-block align-text-top"
+            /><b>
+        Actualizar</b></a
+        >
+        <button 
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="toggle navigation">
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a
+                    th:href="@{/perfil}"  
+                    class="nav-link active" 
+                    aria-current="page" 
+                    href="#"
+                    ><b>PERFIL</b></a
+                    >
+                </li>
+            </ul>
         </div>
     </div>
-</div>
+</nav>
+<!--final del panel de navegacion-->
 
-<!--final del panel card-->
 
-</body>
+    <br />
+
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-lg-6 col-md-6 col-sm-6 container justify-content-center-card"
+        >
+          <h1 class="text-center">Actualizar persona</h1>
+          <div class="card-body">
+            <form
+              th:action="@{/persona/{id} (id=${persona.id})}"
+              th:object="${persona}"
+              method="post"
+            >
+              <div class="form-group">
+                <label><b>Nombre(s)</b></label>
+                <input
+                  type="text"
+                  name="nombrePersona"
+                  th:field="*{nombrePersona}"
+                  class="form-control"
+                  placeholder="Ingrese Nombre(s)"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label><b>Apellido(s)</b></label>
+                <input
+                  type="text"
+                  name="apellidoPersona"
+                  th:field="*{apellidoPersona}"
+                  class="form-control"
+                  placeholder="Ingrese Apellido(s)"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label><b>Cedula</b></label>
+                <input
+                  type="number"
+                  name="cedulaPersona"
+                  th:field="*{cedulaPersona}"
+                  class="form-control"
+                  placeholder="Ingrese numero de cedula SIN PUNTOS"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label><b>Usuario</b></label>
+                <input
+                  type="text"
+                  name="usuarioPersona"
+                  th:field="*{usuarioPersona}"
+                  class="form-control"
+                  placeholder="Ingrese usuario"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label><b>Password</b></label>
+                <input
+                  type="password"
+                  name="passwordPersona"
+                  th:field="*{passwordPersona}"
+                  class="form-control"
+                  placeholder="*********"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label><b>Enfermedades</b></label>
+                <input
+                  type="text"
+                  name="enfermedadesPersona"
+                  th:field="*{enfermedadesPersona}"
+                  class="form-control"
+                  placeholder="Ingrese enfermedad"
+                />
+              </div>
+
+              <div class="box-footer mt-4">
+                <button class="btn btn-success">Actualizar</button>
+                <div class="box-footer mt-4">
+                  <button
+                    class="btn btn-secondary"
+                    input
+                    type="reset"
+                    value="Borrar información"
+                  >
+                    limpiar campos
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

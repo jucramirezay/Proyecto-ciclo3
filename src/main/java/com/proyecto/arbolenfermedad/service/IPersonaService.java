@@ -6,11 +6,7 @@ import com.proyecto.arbolenfermedad.entity.Persona;
 
 public interface IPersonaService {
 
-
-List<Persona> getAllPersona();
-
-
-List<Persona> getPersonaByNombrePersona(String nombrePersona);
+List<Persona> getAll();
 
 Persona savePersona(Persona persona);
 
