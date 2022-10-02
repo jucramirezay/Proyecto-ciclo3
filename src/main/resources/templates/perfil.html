@@ -20,9 +20,27 @@
       rel="stylesheet"
     />
 
-    <title>Document</title>
+    <link rel="stylesheet" href="./css/profile/laptop.css" />
+    <!-- <link rel="stylesheet" href="./css/profile/laptop.css" media="(min-width: 930px)"> -->
+
+    <title>Perfil de persona</title>
   </head>
   <body>
+    <header>
+      <nav class="header-navigation">
+        <span class="header-navigation__icon"></span>
+        <figure>
+          <a href="./index.html"
+            ><img
+              class="header-navigation__logo"
+              src="/images/family_logo.png"
+              alt="Logo de la página"
+          /></a>
+        </figure>
+        <button class="header-navigation__register-button">Sign up</button>
+      </nav>
+    </header>
+
     <!--Inicio del panel de navegacion-->
     <!--<nav class="navbar navbar-expand-md bg-dark navbar-dark">-->
     <nav class="navbar navbar-expand-md bg-primay bg-primary">
@@ -31,10 +49,10 @@
           <img
             src="/icon/health-icon.jpg"
             alt=""
-            width="40"
-            height="40"
+            width="30"
+            height="30"
             class="d-inline-block align-text-top"
-          />Sistema de gestion de miembros</a>
+        /></a>
         <button
           class="navbar-toggler"
           type="button"
@@ -50,13 +68,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a 
-              th:href={@/ver_mi_arbol}
-              class="nav-link active" 
-              aria-current="page"
-               href="#"
-                >Gestion de Miembros</a
-              >
+              <a>Gestion de Arbol genealocido de enfermedades</a>
             </li>
           </ul>
         </div>
@@ -67,54 +79,48 @@
     <!--Inicio del contenedor general-->
     <div class="container mt-4">
       <div class="row">
-        <h1>Lista de miembros</h1>
+        <h1>PERFIL</h1>
       </div>
 
       <div class="row">
         <div class="col-lg-3">
-          <a th:href="@{/create_member/new}" class="btn btn-primary btn-sm mb-3"
-          >Agregar miembro</a
-          >
+          <a class="btn btn-primary">Agregar mis miembros</a>
+          
         </div>
       </div>
-    <!--Inicio de la tabla-->
+      <br>
+      <!--Inicio de la tabla-->
       <table class="table table-striped table-bordered">
         <thead class="table-dark">
           <tr>
-            <th>Nombre del miembro</th>
-            <th>Apellido del miembro</th>
-            <th>parentesco</th>
-            <th>enfermedad uno</th>
-            <th>enfermedad dos</th>
-            <th>enfermedad tres</th>
+            <th>id Persona</th>
+            <th>Nombre Persona</th>
+            <th>Apellido Persona</th>
+            <th>cedula</th>
+            <th>usuario</th>
+            <th>password</th>
+            <th>enfermedades</th>
             <th>Acciones</th>
           </tr>
         </thead>
         <tbody>
-          <tr th:each="miembro: ${miembros}">
-            <td th:text="${miembro.nombreMiembro}"></td>
-            <td th:text="${miembro.apellidoMiembro}"></td>>
-            <td th:text="${miembro.parentescoMiembro}"></td>>
-            <td th:text="${miembro.enfermedadUnoMiembro}"></td>>
-            <td th:text="${miembro.enfermedadDosMiembro}"></td>
-            <td th:text="${miembro.enfermedadTresMiembro}"></td>>
+          <tr th:each="persona: ${persona}">
+            <td th:text="${persona.id}"></td>
+            <td th:text="${persona.nombrePersona}"></td>
+            <td th:text="${persona.apellidoPersona}"></td>
+            <td th:text="${persona.cedulaPersona}"></td>
+            <td th:text="${persona.usuarioPersona}"></td>
+            <td th:text="${persona.passwordPersona}"></td>
+            <td th:text="${persona.enfermedadesPersona} "></td>
             <td>
-              <a
-              th:href="@{/ver_mi_arbol/edit/{id}(id=${miembro.id})}" 
-              class="btn btn-primary"
-              >Actualizar</a
-              >
-              <a
-              th:href="@{/ver_mi_arbol/{id}(id=${miembro.id})}" 
-              class="btn btn-danger"
-              >Borrar</a
-              >
+              <a class="btn btn-primary">Actualizar</a>
+              <a class="btn btn-danger">Borrar</a>
             </td>
           </tr>
         </tbody>
       </table>
-       <!--Fin de la tabla-->
+      <!--Fin de la tabla-->
     </div>
-     <!--Fin del contenedor  general-->
+    <!--Fin del contenedor  general-->
   </body>
 </html>

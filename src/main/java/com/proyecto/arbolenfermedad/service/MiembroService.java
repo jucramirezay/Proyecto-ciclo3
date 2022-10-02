@@ -1,27 +1,32 @@
 package com.proyecto.arbolenfermedad.service;
 
-import java.util.List;
 
-import com.proyecto.arbolenfermedad.Repository.IMiembroRepository;
-import com.proyecto.arbolenfermedad.entity.Miembro;
 
+import org.springframework.stereotype.Service;
+
+
+
+@Service
 public class MiembroService implements IMiembroService {
 
+    /*
     private IMiembroRepository miembroRepository;
 
     public MiembroService(IMiembroRepository miembroRepository) {
         this.miembroRepository = miembroRepository;
     }
 
+
     @Override
-    public List<Miembro> getAllMiembros(){
-        return miembroRepository.findAllSortByapellidoMiembro();
+    public static List<Miembro> getAllMiembros(){
+        return miembroRepository.findAllSortByNombreMiembro();
     }
-    
+
     @Override
-    public List<Miembro> getMiembroBycedulaMiembro(int cedulaMiembro){
-        return miembroRepository.findBycedulaMiembroContaining(cedulaMiembro);
+    public List<Miembro> getMiembrosByNombreMiembro(String  nombreMiembro){
+        return miembroRepository.findByNombreMiembroContaining(nombreMiembro);
     }
+
 
     @Override
     public Miembro saveMiembro(Miembro miembro){
@@ -42,4 +47,7 @@ public class MiembroService implements IMiembroService {
     public Miembro updateMiembro(Miembro miembro){
         return miembroRepository.save(miembro);
     }
+
+     */
+
 }

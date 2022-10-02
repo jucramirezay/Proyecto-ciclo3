@@ -6,16 +6,17 @@ import com.proyecto.arbolenfermedad.entity.Persona;
 
 public interface IPersonaService {
 
-    //List<Persona> getAllPersonas();
 
-    List<Persona> getPersonaBycedulaPersona(int cedulaPersona);
+List<Persona> getAllPersona();
 
-    Persona savePersona(Persona persona);
 
-    Persona getPersonaById(Long id);
+List<Persona> getPersonaByNombrePersona(String nombrePersona);
 
-    Persona updatePersona(Persona persona);
+Persona savePersona(Persona persona);
 
-    void deletePersonaById(Long Id);
-    
+Persona getPersonaById(Long id);
+
+Persona updatePersona(Persona persona);
+
+void deletePersonaById(Long id);
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,25 +16,19 @@
     <link rel="preconectar" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https: //fonts.googleapis.com/css2? family= Raleway:ital,wght@1,200 & display=swap" rel="stylesheet"/>
 
-    <title>Arbol genealogico de enfermedades</title>
+    <title>Document</title>
 </head>
 <body>
-
-
-
     <!--Inicio del panel de navegacion-->
     <!--<nav class="navbar navbar-expand-md bg-dark navbar-dark">-->
      <nav class="navbar navbar-expand-md bg-primay bg-primary">
-
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="/icon/health-icon.jpg" 
                 alt="" width="40" 
                 height="40"
                 class="d-inline-block align-text-top"
-                /><b>
-            Arbol genealogico de enfemedades</b></a
-            >
+                /><b>Sistema de gestion de miembros</b></a >
             <button 
             class="navbar-toggler"
             type="button"
@@ -49,8 +43,12 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"
-                        ><b>editar miembro</b></a
+                        <a
+                        th:href="@{/ver_mi_arbol}"
+                        class="nav-link active"
+                        aria-current="page"
+                        href="#"
+                        >Gestion de miembros</a
                         >
                     </li>
                 </ul>
@@ -64,15 +62,16 @@
     <div class="row">
         <div class="card text-right">
             <div class="card-body">
-                <h1 class="card-title"><FONT COLOR="blue">editar miembro</FONT></h1>
+                <h1 class="card-title"><FONT COLOR="blue">Crear nuevo miembro</FONT></h1>
 <!--Inicio del formulario-->
-<form>
+<form th:action="@{/ver_mi_arbol}" th:object="${miembros}" method="POST">
     <div class="mb-3">
         <div class="form-group">
             <label><b>Nombre(s)</b></label>
             <input 
              type="text" 
              name="nombreMiembro"
+             th:field="*{nombreMiembro}"
              class="form-control" 
              placeholder="Ingrese Nombre(s)"
             />
@@ -83,49 +82,10 @@
             <input 
              type="text" 
              name="apellidoMiembro"
+             th:field="*{apellidoMiembro}"
              class="form-control" 
              placeholder="Ingrese Apellido(S)"
              />
-        </div>
-
-        <div class="form-group">
-            <label><b>Cedula</b></label>
-            <input 
-             type="number" 
-             name="cedulaMiembro"
-             class="form-control" 
-             placeholder="Ingrese numero de cedula SIN PUNTOS"
-             />
-        </div>
-
-        <div class="form-group">
-            <label><b>Fecha Nacimiento</b></label>
-            <input 
-             type="date" 
-             name="fechaNacimientoMiembro"
-             class="form-control" 
-             placeholder="Ingrese Fecha Nacimiento"
-             />
-        </div>
-
-        <div class="form-group">
-            <label><b>Fecha Defuncion</b></label>
-            <input 
-            type="date" 
-            name="fechaDefuncionMiembro"
-            class="form-control" 
-            placeholder="Ingrese Fecha Defuncion"
-            />
-        </div>
-
-        <div class="form-group">
-            <label><b>Genero</b></label>
-            <input 
-            type="text" 
-            name="generoMiembro"
-            class="form-control"
-            placeholder="Ingrese M para masculinoo o F para Femenino"
-            />
         </div>
 
         
@@ -134,6 +94,7 @@
             <input 
             type="text" 
             name="parentescoMiembro"
+            th:field="*{parentescoMiembro}"
             class="form-control" 
             placeholder="Ingrese parentesco"
             />
@@ -141,60 +102,28 @@
     
             
         <div class="form-group">
-            <label><b>Descendencia</b></label>
-            <input 
-            type="text" 
-            name="parentescoMiembro"
-            class="form-control" 
-            placeholder="Ingrese la descendencia"
-            />
-        </div>
-
-        <div class="form-group">
-            <label><b>Enfermedad 1</b></label>
+            <label><b>EnfermedadES</b></label>
             <input 
              type="text" 
-             name="enfermedadUnoMiembro"
+             name="enfermedadesMiembro"
+             th:field="*{enfermedadesMiembro}"
              class="form-control" 
-             placeholder="Ingrese enfermedad"
+             placeholder="Ingrese enfermedades"
              />
-
-        <div class="form-group">
-            <label><b>Enfermedad 2</b></label>
-            <input 
-            type="text" 
-            name="enfermedadDosMiembro"
-            class="form-control" 
-            placeholder="Ingrese enfermedad"
-            />
+            </div>
 
 
-        <div class="form-group">
-            <label><b>Enfermedad 3</b></label>
-            <input 
-            type="text" 
-            name="enfermedadTresMiembro"
-            class="form-control" 
-            placeholder="Ingrese enfermedad"
-            />
-        </div>
         <div class="box-footer mt-4">
-          <button type="submit" class="btn btn-dark">modificar miembros</button>
-
+          <button type="submit" class="btn btn-success" >Enviar</button>
         </div>
       </div>
     </form>           
-
-
-
 <!--fin del formulario-->
-
             </div>
         </div>
+<!--final del card-->        
     </div>
 </div>
-
-<!--final del panel card-->
-
+<!--final del contenedor-->
 </body>
 </html>

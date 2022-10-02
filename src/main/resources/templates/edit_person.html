@@ -16,7 +16,7 @@
     <link rel="preconectar" href="https://fonts.gstatic.com" crossorigin/>
     <link href="https: //fonts.googleapis.com/css2? family= Raleway:ital,wght@1,200 & display=swap" rel="stylesheet"/>
 
-    <title>Arbol genealogico de enfermedades</title>
+    <title>Registrarse</title>
 </head>
 <body>
 
@@ -33,7 +33,7 @@
                 height="40"
                 class="d-inline-block align-text-top"
                 /><b>
-            Arbol genealogico de enfemedades</b></a
+            Registro</b></a
             >
             <button 
             class="navbar-toggler"
@@ -49,10 +49,13 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#"
-                        ><b>Gestion de Personas</b></a
+                        <a 
+                        th:href="@{/registrarpersona}"
+                        class="nav-link active" 
+                        aria-current="page" 
+                        href="#"
+                        ><b>guardar datos</b></a
                         >
-                    </li>
                 </ul>
             </div>
         </div>
@@ -64,22 +67,17 @@
     <div class="row">
         <div class="card text-right">
             <div class="card-body">
-                <h1 class="card-title"><FONT COLOR="red">Editar Persona</FONT></h1>
-<!--Inicio del formulario-->
-<!--Inicio del card-->
-<div class="container mt-3">
-    <div class="row">
-        <div class="card text-right">
-            <div class="card-body">
                 <h1 class="card-title"><FONT COLOR="blue">Crear persona</FONT></h1>
 <!--Inicio del formulario-->
-<form>
+<form th:action="@{/guardarpersona}" th:object="${persona}" method="POST">
+    
     <div class="mb-3">
         <div class="form-group">
             <label><b>Nombre(s)</b></label>
             <input 
              type="text" 
              name="nombrePersona"
+             th:field="*{nombrePersona}"
              class="form-control" 
              placeholder="Ingrese Nombre(s)"
             />
@@ -90,6 +88,7 @@
             <input 
              type="text" 
              name="apellidoPersona"
+             th:field="*{apellidoPersona}"
              class="form-control" 
              placeholder="Ingrese Apellido(s)"
              />
@@ -100,45 +99,19 @@
             <input 
              type="number" 
              name="cedulaPersona"
+             th:field="*{cedulaPersona}"
              class="form-control" 
              placeholder="Ingrese numero de cedula SIN PUNTOS"
              />
         </div>
 
-        <div class="form-group">
-            <label><b>Genero</b></label>
-            <input 
-            type="text" 
-            name="generoPersona"
-            class="form-control"
-            placeholder="Ingrese M para masculinoo o F para Femenino"
-            />
-        </div>
-
-        <div class="form-group">
-            <label><b>Fecha Nacimiento</b></label>
-            <input 
-             type="date" 
-             name="fechaNacimientoPersona"
-             class="form-control" 
-             placeholder="Ingrese Fecha Nacimiento"
-             />
-
-        <div class="form-group">
-            <label for="exampleFormControlInput1" class="form-label"><b>Email address</b></label>
-            <input 
-            type="email" 
-            class="form-control" 
-            id="exampleFormControlInput1" 
-            name="emailPersona"
-            placeholder="name@example.com"
-            />
-        
+       
         <div class="form-group">
            <label><b>Usuario</b></label>
             <input 
               type="text" 
               name="usuarioPersona"
+              th:field="*{usuarioPersona}"
               class="form-control" 
               placeholder="Ingrese usuario"
              />
@@ -148,6 +121,7 @@
             <input 
              type="text" 
              name="passwordPersona"
+             th:field="*{passwordPersona}"
              class="form-control" 
              placeholder="*********"
             />
@@ -157,6 +131,7 @@
             <input 
              type="text" 
              name="enfermedadUnoPersona"
+             th:field="*{enfermedadUnoPersona}"
              class="form-control" 
              placeholder="Ingrese enfermedad"
              />
@@ -166,9 +141,11 @@
             <input 
             type="text" 
             name="enfermedadDosPersona"
+            th:field="*{enfermedadDosPersona}"
             class="form-control" 
             placeholder="Ingrese enfermedad"
             />
+
 
 
         <div class="form-group">
@@ -176,15 +153,16 @@
             <input 
             type="text" 
             name="enfermedadTresPersona"
+            th:field="*{enfermedadTresPersona}"
             class="form-control" 
             placeholder="Ingrese enfermedad"
             />
         </div>
         <div class="box-footer mt-4">
-          <button type="submit" class="btn btn-success" onclick="this.disabled=true">modificar persona</button>
-          <a class="btn btn-warning" href="/ver_mi_arbol" role="button">ver mi arbol</a>          
-
-    
+          <a         
+          class="btn btn-success" 
+          role="button"
+           >Crear persona</a>
 
         </div>
       </div>

@@ -1,6 +1,6 @@
 package com.proyecto.arbolenfermedad.entity;
 
-import java.util.Date;
+//import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "persona")
@@ -31,49 +32,36 @@ public class Persona {
     @Column(name = "cedulapersona", nullable = false)
     private String cedulaPersona;
 
-    @Column(name = "generopersona", nullable = false)
-    private String generoPersona;
-
-    @Column(name = "fechanacimientopersona", nullable = false)
-    private Date fechaNacimientoPersona;
-
-    @Column(name = "emailpersona", nullable = false)
-    private String emailPersona;
-
     @Column(name = "usuariopersona", nullable = false)
     private String usuarioPersona;
 
     @Column(name = "passwordpersona", nullable = false)
     private String passwordPersona;
 
-    @Column(name = "enfermedadunopersona", nullable = false)
-    private String enfermedadUnoPersona;
+    @Column(name = "enfermedadespersona", nullable = true)
+    private String enfermedadesPersona;
 
-    @Column(name = "enfermedaddospersona", nullable = false)
-    private String enfermedadDosPersona;
 
-    @Column(name = "enfermedadtrespersona", nullable = false)
-    private String enfermedadTresPersona;
-
-    @OneToMany(mappedBy = "persona", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
     private Set<Miembro> miembros = new HashSet<>();
 
-    public Persona(String nombrePersona, String apellidoPersona, String cedulaPersona, String generoPersona,
-            Date fechaNacimientoPersona, String emailPersona, String usuarioPersona, String passwordPersona,
-            String enfermedadUnoPersona, String enfermedadDosPersona, String enfermedadTresPersona) {
+    public Persona() {
+
+    }
+
+    public Persona(String nombrePersona, String apellidoPersona, String cedulaPersona,
+            String usuarioPersona, String passwordPersona,
+            String enfermedadesPersona) {
 
         this.nombrePersona = nombrePersona;
         this.apellidoPersona = apellidoPersona;
         this.cedulaPersona = cedulaPersona;
-        this.generoPersona = generoPersona;
-        this.fechaNacimientoPersona = fechaNacimientoPersona;
-        this.emailPersona = emailPersona;
         this.usuarioPersona = usuarioPersona;
         this.passwordPersona = passwordPersona;
-        this.enfermedadUnoPersona = enfermedadUnoPersona;
-        this.enfermedadDosPersona = enfermedadDosPersona;
-        this.enfermedadTresPersona = enfermedadTresPersona;
+        this.enfermedadesPersona = enfermedadesPersona;
+
     }
+
 
     public Long getId() {
         return id;
@@ -107,29 +95,6 @@ public class Persona {
         this.cedulaPersona = cedulaPersona;
     }
 
-    public String getGeneroPersona() {
-        return generoPersona;
-    }
-
-    public void setGeneroPersona(String generoPersona) {
-        this.generoPersona = generoPersona;
-    }
-
-    public Date getFechaNacimientoPersona() {
-        return fechaNacimientoPersona;
-    }
-
-    public void setFechaNacimientoPersona(Date fechaNacimientoPersona) {
-        this.fechaNacimientoPersona = fechaNacimientoPersona;
-    }
-
-    public String getEmailPersona() {
-        return emailPersona;
-    }
-
-    public void setEmailPersona(String emailPersona) {
-        this.emailPersona = emailPersona;
-    }
 
     public String getUsuarioPersona() {
         return usuarioPersona;
@@ -147,29 +112,15 @@ public class Persona {
         this.passwordPersona = passwordPersona;
     }
 
-    public String getEnfermedadUnoPersona() {
-        return enfermedadUnoPersona;
+    public String getEnfermedadesPersona() {
+        return enfermedadesPersona;
     }
 
-    public void setEnfermedadUnoPersona(String enfermedadUnoPersona) {
-        this.enfermedadUnoPersona = enfermedadUnoPersona;
+    public void setEnfermedadesPersona(String enfermedadesPersona) {
+        this.enfermedadesPersona = enfermedadesPersona;
     }
 
-    public String getEnfermedadDosPersona() {
-        return enfermedadDosPersona;
-    }
-
-    public void setEnfermedadDosPersona(String enfermedadDosPersona) {
-        this.enfermedadDosPersona = enfermedadDosPersona;
-    }
-
-    public String getEnfermedadTresPersona() {
-        return enfermedadTresPersona;
-    }
-
-    public void setEnfermedadTresPersona(String enfermedadTresPersona) {
-        this.enfermedadTresPersona = enfermedadTresPersona;
-    }
+    
 
     public Set<Miembro> getMiembros() {
         return miembros;
@@ -177,8 +128,13 @@ public class Persona {
 
     public void setMiembros(Set<Miembro> miembros) {
         this.miembros = miembros;
+        for(Miembro miembro : miembros){
+            miembro.setPersona(this);
+
+        }
     }
 
+    
     @Override
     public int hashCode() {
         final int prime = 31;
@@ -203,7 +159,9 @@ public class Persona {
             return false;
         return true;
     }
+ 
 
+ 
     @Override
     public String toString() {
         return "Persona{"
@@ -211,16 +169,12 @@ public class Persona {
                 "nombrePersona=" + nombrePersona +
                 "apellidoPersona=" + apellidoPersona +
                 "cedulaPersona=" + cedulaPersona +
-                "generoPersona=" + generoPersona +
-                "fechaNacimientoPersona=" + fechaNacimientoPersona +
-                "emailPersona=" + emailPersona +
                 "usuarioPersona=" + usuarioPersona +
                 "passwordPersona=" + passwordPersona +
-                "enfermedadUnoPersona=" + enfermedadUnoPersona +
-                "enfermedadDosPersona=" + enfermedadDosPersona +
-                "enfermedadTresPersona=" + enfermedadTresPersona +
+                "enfermedadesPersona=" + enfermedadesPersona +
                 '}';
 
-    }
+    } 
+    
 
 }
