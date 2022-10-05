@@ -1,68 +1,30 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" 
-    crossorigin="anonymous"
-/>
-
-<link rel="stylesheet" href="css/style.css" />
-
-<link rel="preconectar" href="https://fonts.googleapis.com"/>
-<link rel="preconectar" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https: //fonts.googleapis.com/css2? family= Raleway:ital,wght@1,200 & display=swap" rel="stylesheet"/>
-
-<title>Actualizacion de datos</title>
-</head>
-<body>
-
-
-
-<!--Inicio del panel de navegacion-->
-<!--<nav class="navbar navbar-expand-md bg-dark navbar-dark">-->
- <nav class="navbar navbar-expand-md bg-primay bg-primary">
-
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="/icon/health-icon.jpg" 
-            alt="" width="40" 
-            height="40"
-            class="d-inline-block align-text-top"
-            /><b>
-        Actualizar</b></a
-        >
-        <button 
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="toggle navigation">
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a
-                    th:href="@{/perfil/{id}}"  
-                    class="nav-link active" 
-                    aria-current="page" 
-                    href="#"
-                    ><b>PERFIL</b></a
-                    >
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!--final del panel de navegacion-->
-
+  <head>
+    <meta charset="UTF-8" />
+    <title>Registrarse</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#"><b>Formulario</b></a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/registrarpersona"
+              >REVISARLO PARA CAMBIARLE EL LINK</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
 
     <br />
 
@@ -71,12 +33,12 @@
         <div
           class="col-lg-6 col-md-6 col-sm-6 container justify-content-center-card"
         >
-          <h1 class="text-center">Actualizar persona</h1>
+          <h1 class="text-center">CREAR PERSONA</h1>
           <div class="card-body">
             <form
-              th:action="@{/persona/{id} (id=${persona.id})}"
+              th:action="@{/guardarpersona}"
               th:object="${persona}"
-              method="post"
+              method="POST"
             >
               <div class="form-group">
                 <label><b>Nombre(s)</b></label>
@@ -150,7 +112,7 @@
               </div>
 
               <div class="box-footer mt-4">
-                <button class="btn btn-success">Actualizar</button>
+                <button class="btn btn-success">Crear persona</button>
                 <div class="box-footer mt-4">
                   <button
                     class="btn btn-secondary"

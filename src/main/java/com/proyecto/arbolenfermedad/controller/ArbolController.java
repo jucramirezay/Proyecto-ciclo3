@@ -1,6 +1,8 @@
 package com.proyecto.arbolenfermedad.controller;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,13 +11,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-
-
+import com.proyecto.arbolenfermedad.entity.Miembro;
 import com.proyecto.arbolenfermedad.entity.Persona;
-
+import com.proyecto.arbolenfermedad.service.MiembroService;
 import com.proyecto.arbolenfermedad.service.PersonaService;
 
 @Controller
@@ -25,15 +24,15 @@ public class ArbolController {
     private PersonaService personaService;
 
     
-    /*@Autowired
+
+    @Autowired
     private MiembroService miembroService;
-    */
 
-    
-     public ArbolController(PersonaService personaService ) {
-     this.personaService = personaService;
-   }
+    public ArbolController(PersonaService personaService, MiembroService miembroService) {
+        this.personaService = personaService;
+        this.miembroService = miembroService;
 
+    }
 
     @GetMapping("/")
     public String principal() {
@@ -50,7 +49,17 @@ public class ArbolController {
         return "create_person";
     }
 
-    @RequestMapping(value = "/guardarpersona", method = RequestMethod.POST)
+    @GetMapping("/formCrearPersona")
+    public String FormularioCrearPersona(Model model) {
+        Persona persona = new Persona();
+        model.addAttribute("persona", persona);
+        return "/crearpersona";
+    }
+
+    // esta liena funciona pero al cambie par aprobar la del profesor
+    // @RequestMapping (value = "/guardarpersona", method = RequestMethod.POST)
+
+    @PostMapping("/guardarpersona")
     public String guardarPersona(@ModelAttribute("persona") Persona persona) {
         personaService.savePersona(persona);
         return "/perfil";
@@ -63,134 +72,90 @@ public class ArbolController {
         return "perfil";
     }
 
+    @GetMapping("personaperfil/ver/{id}")
+    public String verperfil(@PathVariable Long id, Model model) {
+        Persona pt = personaService.getPersonaById(id);
+        model.addAttribute("persona", pt);
+        return "perfil";
+    }
+
     @GetMapping("persona/edit/{id}")
-    public String editPersonaForm(@PathVariable Long id, Model model){
-    Persona pt= personaService.getPersonaById(id);
-    model.addAttribute("persona",pt);
-    return "edit_person";
+    public String editPersonaForm(@PathVariable Long id, Model model) {
+        Persona pt = personaService.getPersonaById(id);
+        model.addAttribute("persona", pt);
+        return "edit_person";
     }
 
     @PostMapping("/persona/{id}")
-    public String updatePersona(@PathVariable Long id, 
-    @ModelAttribute("persona") Persona persona,Model model) {
-    //sacar el esudiante de la b.d. por el id
-    Persona existentPerson =personaService.getPersonaById(id);
-    // cargarlo
-    existentPerson.setId(id);
-    existentPerson.setNombrePersona(persona.getNombrePersona());
-    existentPerson.setApellidoPersona(persona.getApellidoPersona());
-    existentPerson.setCedulaPersona(persona.getCedulaPersona());
-    existentPerson.setUsuarioPersona(persona.getUsuarioPersona());
-    existentPerson.setPasswordPersona(persona.getPasswordPersona());
-    existentPerson.setEnfermedadesPersona(persona.getEnfermedadesPersona());
+    public String updatePersona(@PathVariable Long id,
+            @ModelAttribute("persona") Persona persona, Model model) {
+        // sacar el esudiante de la b.d. por el id
+        Persona existentPerson = personaService.getPersonaById(id);
+        // cargarlo
+        existentPerson.setId(id);
+        existentPerson.setNombrePersona(persona.getNombrePersona());
+        existentPerson.setApellidoPersona(persona.getApellidoPersona());
+        existentPerson.setCedulaPersona(persona.getCedulaPersona());
+        existentPerson.setUsuarioPersona(persona.getUsuarioPersona());
+        existentPerson.setPasswordPersona(persona.getPasswordPersona());
+        existentPerson.setEnfermedadesPersona(persona.getEnfermedadesPersona());
 
-    personaService.updatePersona(existentPerson);
-    return "/perfil";
+        personaService.updatePersona(existentPerson);
+        return "perfil";
     }
 
-    @GetMapping("/persona/{id}")
+    // revisar la priemra linea y el return
+    @GetMapping("/{id}")
     public String deletePersona(@PathVariable Long id) {
-    PersonaService.deletePersonaById(id);
-    return "/";        
+        personaService.deletePersonaById(id);
+        return "redirect:/index";
     }
 
-    
-
-
-
-    @RequestMapping("/login")
+    @GetMapping("/login")
     public String login() {
 
         return "login";
     }
 
-    /*
-     * @GetMapping("ver_mi_arbol")
-     * public String ver_mi_arbol(Model model) {
-     * model.addAttribute("ver_mi_arbol", miembroService.getAllMiembro());
-     * return "ver_mi_arbol";
-     * }
-     * 
-     * @GetMapping("/ver_mi_arbol")
-     * public String listMiembros(Model model) {
-     * model.addAttribute("ver_mi_arbol", miembroService.getAllMiembro());
-     * return "ver_mi_arbol";
-     * }
-     * 
-     * @GetMapping("/create_member/new")
-     * public String createMiembroForm(Model model) {
-     * Miembro miembro= new Miembro();
-     * model.addAttribute("ver_mi_arbol", miembro);
-     * return "create_member";
-     * }
-     * 
-     * @PostMapping("/ver_mi_arbol")
-     * public String saveMiembro (@ModelAttribute("ver_mi_arbol") Miembro miembro) {
-     * miembroService.saveMiembro(miembro);
-     * return "redirect:/ver_mi_arbol";
-     * }
-     * 
-     * @GetMapping("ver_mi_arbol/edit/{id}")
-     * public String editMiembroForm(@PathVariable Long id, Model model){
-     * Miembro mt= miembroService.getMiembroById(id);
-     * model.addAttribute("ver_mi_arbol",mt);
-     * 
-     * 
-     * return "edit_member";
-     * }
-     * 
-     * 
-     * // api actualizar un miembro
-     * 
-     * @PostMapping("/ver_mi_arbol/edit/{id}")
-     * public String updateMiembro(@PathVariable Long id,
-     * 
-     * @ModelAttribute("miembros") Miembro miembro, //no estoy seguro si miembro
-     * entre comilla sea la tabla de la bd
-     * Model model) {
-     * // sacar al miembro de la bd por id
-     * Miembro existentMiembro = miembroService.getMiembroById(id);
-     * // cargarlo
-     * existentMiembro.setId(id);
-     * existentMiembro.setNombreMiembro(miembro.getNombreMiembro());
-     * existentMiembro.setApellidoMiembro(miembro.getApellidoMiembro());
-     * existentMiembro.setCedulaMiembro(miembro.getCedulaMiembro());
-     * existentMiembro.setGeneroMiembro(miembro.getGeneroMiembro());
-     * existentMiembro.setFechaNacimientoMiembro(miembro.getFechaNacimientoMiembro()
-     * );
-     * existentMiembro.setFechaDefuncionMiembro(miembro.getFechaDefuncionMiembro());
-     * existentMiembro.setParentescoMiembro(miembro.getParentescoMiembro());
-     * existentMiembro.setDescendenciaMiembro(miembro.getDescendenciaMiembro());
-     * existentMiembro.setEnfermedadUnoMiembro(miembro.getEnfermedadUnoMiembro());
-     * existentMiembro.setEnfermedadDosMiembro(miembro.getEnfermedadDosMiembro());
-     * existentMiembro.setEnfermedadTresMiembro(miembro.getEnfermedadTresMiembro());
-     * 
-     * // guardar el miembro actualizado
-     * miembroService.updateMiembro(existentMiembro);
-     * 
-     * return "redirect:/ver_mi_arbol";
-     * 
-     * }
-     * 
-     * 
-     * // api elimminar miembro
-     * 
-     * @GetMapping("/ver_mi_arbol/{id}")
-     * public String deleteMiembro(@PathVariable Long id) {
-     * miembroService.deleteMiembroById(id);
-     * return "redirect:/ver_mi_arbol";
-     * }
-     * 
-     * 
-     * //PERSONA
-     * 
-     * @GetMapping("/create_person/new")
-     * public String createPersonaForm(Model model) {
-     * Persona persona= new Persona();
-     * model.addAttribute("create_persona", persona);
-     * //model.addAttribute("personaList",personaList);
-     * return "create_person";
-     * }
-     */
+    // miembros
+    @GetMapping("/registrarmiembro")
+    public String mostrarFormularioDeRegistarMiembro(Model model) {
 
+        Miembro miembro = new Miembro();
+
+        model.addAttribute("miembro", miembro);
+
+        return "/create_member";
+    }
+
+    
+    @GetMapping("/crearmiembro")
+    public String ForDeRegistarMiembro(@PathVariable Long id,Model model) {
+        Persona exisPers = personaService.getPersonaById(id);
+
+        Miembro miembro = new Miembro();
+        model.addAttribute("persona", exisPers);
+        model.addAttribute("miembro", miembro);
+        return "crearmiembro";
+    }
+
+    @PostMapping("/guardarmiembro")
+    public String guardarmiembro(@ModelAttribute("miembro") Miembro miembro) {
+
+        Persona persona=new Persona();
+        persona.setMiembros(miembro);
+        miembro.setPersona(persona);
+
+        Set<Miembro> hsMiembro = new HashSet<Miembro>();
+        hsMiembro.add(miembro);
+
+    
+        miembroService.saveMiembro(miembro);
+        //System.out.println(hsMiembro);
+
+        return "create_member";
+
+
+
+}
 }

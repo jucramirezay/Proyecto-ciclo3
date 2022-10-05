@@ -75,8 +75,8 @@
             </h1>
             <!--Inicio del formulario-->
             <form
-              th:action="@{/guardarmiembro}"
-              th:object="${miembro}"
+              th:action="@{/guardarmiembro/{id}"
+              th:object="${miembros}"
               method="POST"
             >
               <div class="mb-3">
@@ -125,7 +125,17 @@
                 </div>
 
 
-
+                <div class="form-group">
+                  <label><b>principal</b></label>
+                  <input
+                    type="hidden"
+                    name="persona_id"
+                    th:field="${pesona_id}"
+                    th:value="${persona.id}"
+                    th:text="${persona.nombrepersona}"
+                    class="form-control"
+                  />
+                </div>
 
 
                 <div class="box-footer mt-4">

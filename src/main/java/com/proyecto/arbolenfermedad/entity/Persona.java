@@ -41,7 +41,7 @@ public class Persona {
     private String enfermedadesPersona;
 
 
-    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "persona", cascade = CascadeType.ALL,orphanRemoval = true)
     private Set<Miembro> miembros = new HashSet<>();
 
     public Persona() {
@@ -125,12 +125,9 @@ public class Persona {
         return miembros;
     }
 
-    public void setMiembros(Set<Miembro> miembros) {
-        this.miembros = miembros;
-        for(Miembro miembro : miembros){
-            miembro.setPersona(this);
-
-        }
+    public void setMiembros(Miembro miembro) {
+        this.miembros.add(miembro);
+        
     }
 
     

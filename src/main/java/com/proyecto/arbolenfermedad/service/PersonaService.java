@@ -14,11 +14,16 @@ public class PersonaService implements IPersonaService {
   
     private IPersonaRepository personaRepository;
 
-    
+
 
 
     public PersonaService(IPersonaRepository personaRepository) {
         this.personaRepository = personaRepository;
+    }
+
+    @Override
+    public List<Persona> getAll() {
+        return personaRepository.findAll();
     }
 
     @Override
@@ -33,22 +38,18 @@ public class PersonaService implements IPersonaService {
     }   
 
 
-
-    @Override
-    public void deletePersonaById(Long id){
-        personaRepository.deleteById(id);
-    }
-
     @Override
     public Persona updatePersona(Persona persona){
         return personaRepository.save(persona);
     }
 
+
     @Override
-    public List<Persona> getAll() {
-        return personaRepository.findAll();
+    public  void deletePersonaById(Long id){
+        personaRepository.deleteById(id);
     }
 
+   
 
     
 }

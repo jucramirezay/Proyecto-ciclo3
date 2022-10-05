@@ -41,7 +41,7 @@ public class Miembro implements Serializable  {
     
     @ManyToOne(fetch = FetchType.LAZY,optional=false)
     @JsonProperty(access=Access.WRITE_ONLY)
-    @JoinColumn(name = "persona_id")
+    @JoinColumn(name = "persona_id",nullable = false)
     private Persona persona;
 
     public Miembro(){

@@ -79,14 +79,10 @@
     <!--Inicio del contenedor general-->
     <div class="container mt-4">
       <div class="row">
-        <h1>PERFIL</h1>
+        <h1>MI PERFIL</h1>
       </div>
 
-      <div class="row">
-        <div class="col-lg-3">
-          <a class="btn btn-primary">Agregar mis miembros</a>
-        </div>
-      </div>
+      <div class="row"></div>
       <br />
       <!--Inicio de la tabla-->
       <table class="table table-striped table-bordered">
@@ -117,8 +113,58 @@
                 class="btn btn-primary"
                 >Actualizar</a
               >
-              <a th:href="@{/persona/{id}(id=${persona.id})}"
-              class="btn btn-danger">Borrar</a>
+              <a>Borrar</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!--Fin de la tabla-->
+    </div>
+    <!--Fin del contenedor  general-->
+
+    <!--Inicio del contenedor general-->
+    <div class="container mt-4">
+      <div class="row">
+        <h1>MIEMBROS</h1>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3">
+          <a 
+          th:href="@{/registrarmiembro}"        
+          class="nav-link active"
+          aria-current="page"
+          href="#"
+          >Agregar miembros</a>
+        </div>
+      </div>
+      <br />
+      <!--Inicio de la tabla-->
+      <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+          <tr>
+            <th>id miembro</th>
+            <th>Nombre miembro</th>
+            <th>Apellido miembro</th>
+            <th>parentesco</th>
+            <th>enfermedades</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr th:each="miembro: ${miembro}">
+            <td th:text="${miembro.id}"></td>
+            <td th:text="${miembro.nombreMiembro}"></td>
+            <td th:text="${miembro.apellidoMiembro"></td>
+            <td th:text="${miembro.parentescoMiembro}"></td>
+            <td th:text="${miembro.enfermedadesMiembro}"></td>
+            <td>
+              <a
+                th:href="@{/miembro/edit/{id}(id=${miembro.id})}"
+                class="btn btn-primary"
+                >Actualizar</a
+              >
+              <a>Borrar</a>
             </td>
           </tr>
         </tbody>
